@@ -1,0 +1,556 @@
+﻿<Window x:Class="PatientRegistrationWPF1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Patient Registration"
+        Height="850"
+        Width="1250"
+        WindowStartupLocation="CenterScreen"
+        Background="#F3F5F7">
+
+    <Window.Resources>
+        <Style x:Key="FieldLabel" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="Foreground" Value="#344054"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="26"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Padding" Value="5,2"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#C9CED6"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value="0,2,0,5"/>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="26"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#C9CED6"/>
+            <Setter Property="Margin" Value="0,2,0,5"/>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Height" Value="26"/>
+            <Setter Property="Margin" Value="0,2,0,5"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="26"/>
+            <Setter Property="Padding" Value="10,2"/>
+            <Setter Property="Background" Value="#F5F5F5"/>
+            <Setter Property="BorderBrush" Value="#999999"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="420"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        
+        
+        <!-- LEFT PANEL - Personal Details -->
+        <GroupBox Grid.Column="0" Header="Personal Details" 
+                  FontSize="13" FontWeight="Bold" Margin="0,0,5,0">
+            <Grid Margin="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="*"/>
+                    
+                </Grid.ColumnDefinitions>
+                
+                
+                <Grid.RowDefinitions>
+                    
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- MRN -->
+                <TextBlock Text="MRN :" 
+           Grid.Row="0"
+           Style="{StaticResource FieldLabel}"/>
+
+                <TextBox x:Name="txtMRN" 
+         Grid.Row="0" 
+         Grid.Column="1" 
+         Grid.ColumnSpan="2"
+         Text=""/>
+
+                <Button Content="..." 
+        Grid.Row="0" 
+        Grid.Column="3" 
+        Width="30" 
+        HorizontalAlignment="Left"/>
+
+                <!-- Patient Name -->
+                <TextBlock Text="Patient Name :" 
+                           Grid.Row="1" Style="{StaticResource FieldLabel}"/>
+                
+                <TextBox x:Name="txtPatientName" 
+                         Grid.Row="1" Grid.Column="1" 
+                         Grid.ColumnSpan="3"/>
+
+                <!-- Other MRN -->
+                <TextBlock Text="Other MRN :" 
+                           Grid.Row="2" Style="{StaticResource FieldLabel}"/>
+                
+                <TextBox x:Name="txtOtherMRN" 
+                         Grid.Row="2" Grid.Column="1" 
+                         Grid.ColumnSpan="3"/>
+
+                <!-- Emirates ID -->
+                <TextBlock Text="Emirates ID :" 
+                           Grid.Row="3" Style="{StaticResource FieldLabel}"/>
+                
+                <TextBox x:Name="txtEmiratesID" 
+                         Grid.Row="3" 
+                         Grid.Column="1" 
+                         Grid.ColumnSpan="2"/>
+                
+                <Button Content="Emirates ID READ" 
+                        Grid.Row="3" 
+                        Grid.Column="3" 
+                        Background="#C5CAE9" FontWeight="Bold"/>
+                
+
+                <!-- Gender & TC -->
+                <TextBlock Text="Gender :"
+                           Grid.Row="4"
+                           Style="{StaticResource FieldLabel}"/>
+                <ComboBox x:Name="cmbGender"
+                          Grid.Row="4"
+                          Grid.Column="1"
+                          Width="135"
+                          HorizontalAlignment="Left"
+                          IsEditable="False"
+                          IsTextSearchCaseSensitive="True"
+                          TextSearch.TextPath="Content">
+                    <ComboBoxItem Content="Male"/>
+                    <ComboBoxItem Content="Female"/>
+                    
+                </ComboBox>
+                <TextBlock Text="tc :"
+                           Grid.Row="4"
+                           Grid.Column="2"
+                           Style="{StaticResource FieldLabel}"
+                           HorizontalAlignment="Right"
+                           Margin="0,0,5,0"/>
+                <ComboBox x:Name="cmbTC"
+                          Grid.Row="4"
+                          Grid.Column="3"
+                          Width="100"
+                          HorizontalAlignment="Left"
+                          IsEditable="False">
+                    <ComboBoxItem Content="not available"/>
+                </ComboBox>
+
+
+
+                <!-- DOB & Age -->
+                <TextBlock Text="Date of Birth :" 
+           Grid.Row="5" 
+           Style="{StaticResource FieldLabel}"/>
+
+                <DatePicker x:Name="dpDOB" 
+            Grid.Row="5" 
+            Grid.Column="1"/>
+
+                <TextBlock Text="Age :" 
+           Grid.Row="5" 
+           Grid.Column="2" 
+           Style="{StaticResource FieldLabel}" 
+           HorizontalAlignment="Right"
+           Margin="0,0,5,0"/>
+
+                <StackPanel Grid.Row="5"
+            Grid.Column="3"
+            Orientation="Horizontal"
+            VerticalAlignment="Center">
+
+                    <TextBox x:Name="txtAge"
+             Width="45"
+             Margin="0,2,5,5"/>
+
+                    <TextBlock Text="Years"
+               VerticalAlignment="Center"
+               FontSize="12"
+               Foreground="#344054"/>
+                </StackPanel>
+                
+
+
+                <!-- Nationality -->
+                <TextBlock Text="Nationality :" 
+                           Grid.Row="6" Style="{StaticResource FieldLabel}"/>
+
+                <ComboBox x:Name="cmbNationality" Grid.Row="6" 
+                          Grid.Column="1" 
+                          Grid.ColumnSpan="3">
+                    <ComboBoxItem Content="Afghan"/>
+                    <ComboBoxItem Content="Albanian"/>
+                    <ComboBoxItem Content="Algerian"/>
+                    <ComboBoxItem Content="American"/>
+                    <ComboBoxItem Content="Argentine"/>
+                    <ComboBoxItem Content="Australian"/>
+                    <ComboBoxItem Content="Austrian"/>
+                    <ComboBoxItem Content="Bangladeshi"/>
+                    <ComboBoxItem Content="Belgian"/>
+                    <ComboBoxItem Content="Brazilian"/>
+                    <ComboBoxItem Content="British"/>
+                    <ComboBoxItem Content="Canadian"/>
+                    <ComboBoxItem Content="Chinese"/>
+                    <ComboBoxItem Content="Colombian"/>
+                    <ComboBoxItem Content="Danish"/>
+                    <ComboBoxItem Content="Egyptian"/>
+                    <ComboBoxItem Content="Emirati"/>
+                    <ComboBoxItem Content="Ethiopian"/>
+                    <ComboBoxItem Content="Filipino"/>
+                    <ComboBoxItem Content="Finnish"/>
+                    <ComboBoxItem Content="French"/>
+                    <ComboBoxItem Content="German"/>
+                    <ComboBoxItem Content="Greek"/>
+                    <ComboBoxItem Content="Indian"/>
+                    <ComboBoxItem Content="Indonesian"/>
+                    <ComboBoxItem Content="Iranian"/>
+                    <ComboBoxItem Content="Iraqi"/>
+                    <ComboBoxItem Content="Irish"/>
+                    <ComboBoxItem Content="Italian"/>
+                    <ComboBoxItem Content="Japanese"/>
+                    <ComboBoxItem Content="Jordanian"/>
+                    <ComboBoxItem Content="Kenyan"/>
+                    <ComboBoxItem Content="Korean"/>
+                    <ComboBoxItem Content="Lebanese"/>
+                    <ComboBoxItem Content="Malaysian"/>
+                    <ComboBoxItem Content="Mexican"/>
+                    <ComboBoxItem Content="Moroccan"/>
+                    <ComboBoxItem Content="Nepalese"/>
+                    <ComboBoxItem Content="Nigerian"/>
+                    <ComboBoxItem Content="Norwegian"/>
+                    <ComboBoxItem Content="Pakistani"/>
+                    <ComboBoxItem Content="Palestinian"/>
+                    <ComboBoxItem Content="Polish"/>
+                    <ComboBoxItem Content="Portuguese"/>
+                    <ComboBoxItem Content="Romanian"/>
+                    <ComboBoxItem Content="Russian"/>
+                    <ComboBoxItem Content="Saudi"/>
+                    <ComboBoxItem Content="Serbian"/>
+                    <ComboBoxItem Content="Singaporean"/>
+                    <ComboBoxItem Content="Somali"/>
+                    <ComboBoxItem Content="South African"/>
+                    <ComboBoxItem Content="Spanish"/>
+                    <ComboBoxItem Content="Sri Lankan"/>
+                    <ComboBoxItem Content="Sudanese"/>
+                    <ComboBoxItem Content="Swedish"/>
+                    <ComboBoxItem Content="Swiss"/>
+                    <ComboBoxItem Content="Syrian"/>
+                    <ComboBoxItem Content="Thai"/>
+                    <ComboBoxItem Content="Tunisian"/>
+                    <ComboBoxItem Content="Turkish"/>
+                    <ComboBoxItem Content="Ugandan"/>
+                    <ComboBoxItem Content="Ukrainian"/>
+                    <ComboBoxItem Content="Vietnamese"/>
+                    <ComboBoxItem Content="Yemeni"/>
+                    <ComboBoxItem Content="Other"/>
+                </ComboBox>
+
+                <!-- Profession -->
+                <TextBlock Text="Profession :" 
+                           Grid.Row="7" Style="{StaticResource FieldLabel}"/>
+                
+                <ComboBox x:Name="cmbProfession" 
+                          Grid.Row="7" 
+                          Grid.Column="1" 
+                          Grid.ColumnSpan="2" SelectedIndex="0">
+                    <ComboBoxItem Content="None"/>
+                </ComboBox>
+
+                <!-- Place -->
+                <TextBlock Text="Place :" 
+                           Grid.Row="8" Style="{StaticResource FieldLabel}"/>
+                <ComboBox x:Name="cmbPlace" 
+                          Grid.Row="8" 
+                          Grid.Column="1" 
+                          Grid.ColumnSpan="3"
+                          SelectedIndex="0">
+                    <ComboBoxItem Content="Abu Dhabi"/>
+                </ComboBox>
+
+                <!-- Visa Status -->
+                <TextBlock Text="Visa Status :" 
+                           Grid.Row="9" 
+                           Style="{StaticResource FieldLabel}"/>
+                
+                <ComboBox x:Name="cmbVisaStatus" 
+                          Grid.Row="9" 
+                          Grid.Column="1"
+                          Grid.ColumnSpan="3" SelectedIndex="0">
+                    <ComboBoxItem Content="Resident"/>
+                </ComboBox>
+
+                <!-- Patient Status -->
+                <TextBlock Text="Patient Status :" 
+                           Grid.Row="10" 
+                           Style="{StaticResource FieldLabel}"/>
+                
+                <ComboBox x:Name="cmbPatientStatus"
+                          Grid.Row="10" 
+                          Grid.Column="1" 
+                          Grid.ColumnSpan="3" SelectedIndex="0">
+                    <ComboBoxItem Content="Normal"/>
+                </ComboBox>
+
+                
+                <!-- Tel No Home -->
+                <TextBlock Text="Tel No. (Home) :" 
+                           Grid.Row="11" 
+                           Style="{StaticResource FieldLabel}"/>
+                <TextBox x:Name="txtHomePhone" 
+                         Grid.Row="11" 
+                         Grid.Column="1" 
+                         Grid.ColumnSpan="3"/>
+
+                <!-- Tel No Office -->
+                <TextBlock Text="Tel No. (Office) :" 
+                           Grid.Row="12" Style="{StaticResource FieldLabel}"/>
+                <TextBox x:Name="txtOfficePhone" 
+                         Grid.Row="12" 
+                         Grid.Column="1" 
+                         Grid.ColumnSpan="3"/>
+
+                <!-- Mobile No -->
+                <TextBlock Text="Mobile No. :" 
+                           Grid.Row="13" Style="{StaticResource FieldLabel}"/>
+                
+                <TextBox x:Name="txtMobile" 
+                         Grid.Row="13" 
+                         Grid.Column="1" 
+                         Grid.ColumnSpan="3"/>
+
+                <!-- Email -->
+                <TextBlock Text="E-mail :"
+                           Grid.Row="14" Style="{StaticResource FieldLabel}"/>
+                
+                <TextBox x:Name="txtEmail" 
+                         Grid.Row="14"
+                         Grid.Column="1" 
+                         Grid.ColumnSpan="3"/>
+
+                <!-- Relative/Fr Name -->
+                <TextBlock Text="Relative/Fr Name :" 
+                           Grid.Row="15" Style="{StaticResource FieldLabel}"/>
+                
+                
+                <TextBox x:Name="txtRelative" 
+                         Grid.Row="15" 
+                         Grid.Column="1" 
+                         Grid.ColumnSpan="3"/>
+
+                <!-- Relative/Fr Phone -->
+                <TextBlock Text="Relative/Fr Phone :" 
+                           Grid.Row="16" 
+                           Style="{StaticResource FieldLabel}"/>
+                
+                <TextBox x:Name="txtRelativePhone"
+                         Grid.Row="16" 
+                         Grid.Column="1"
+                         Grid.ColumnSpan="3"/>
+
+                <!-- Save Button -->
+                <Button Content="Save" 
+                        Grid.Row="16"
+                        Grid.Column="3" 
+                        Width="60" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Bottom" Margin="0,0,0,5"/>
+            </Grid>
+        </GroupBox>
+
+        <!-- RIGHT PANEL -->
+        <Grid Grid.Column="1" Margin="5,0,0,0">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Home Care Additional Information -->
+            <GroupBox Grid.Row="0" Header="Home Care Additional Information" 
+                      FontSize="13" FontWeight="Bold" Margin="0,0,0,8">
+                <Grid Margin="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="City, Area, Street, House Number :" Style="{StaticResource FieldLabel}"/>
+                    <TextBox Grid.Column="1" Grid.ColumnSpan="2" Height="50" VerticalContentAlignment="Top" 
+                             TextWrapping="Wrap" AcceptsReturn="True"/>
+
+                    <TextBlock Text="Google Map Cordinates :" Grid.Row="1" Style="{StaticResource FieldLabel}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1"/>
+                    <Button Content="Save" Grid.Row="1" Grid.Column="2" Width="60" Margin="5,2,0,5"/>
+                </Grid>
+            </GroupBox>
+
+            <!-- Insurance/Corporate Details -->
+            <GroupBox Grid.Row="1" Header="Insurance/Corporate Details" 
+                      FontSize="13" FontWeight="Bold" Margin="0,0,0,8">
+                <Grid Margin="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Type :" Style="{StaticResource FieldLabel}"/>
+                    <ComboBox x:Name="cmbInsuranceType" Grid.Column="1" Grid.ColumnSpan="2" SelectedIndex="0">
+                        <ComboBoxItem Content="Insurance"/>
+                    </ComboBox>
+
+                    <TextBlock Text="Name :" Grid.Row="1" Style="{StaticResource FieldLabel}"/>
+                    <ComboBox x:Name="cmbInsuranceName" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                    <TextBlock Text="Packages :" Grid.Row="2" Style="{StaticResource FieldLabel}"/>
+                    <ComboBox x:Name="cmbPackages" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                    <TextBlock Text="Card No. :" Grid.Row="3" Style="{StaticResource FieldLabel}"/>
+                    <TextBox x:Name="txtCardNo" Grid.Row="3" Grid.Column="1" Width="200" HorizontalAlignment="Left"/>
+
+                    <TextBlock Text="Expiry Date :" Grid.Row="4" Style="{StaticResource FieldLabel}"/>
+                    <ComboBox x:Name="cmbExpiry" Grid.Row="4" Grid.Column="1" Width="200" HorizontalAlignment="Left" SelectedIndex="0">
+                        <ComboBoxItem Content="11 Nov 2025"/>
+                    </ComboBox>
+
+                    <TextBlock Text="Deductable Amt. :" Grid.Row="5" Style="{StaticResource FieldLabel}"/>
+                    <Grid Grid.Row="5" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Text="0.00" HorizontalAlignment="Left" Width="80"/>
+                        <ComboBox Grid.Column="1" SelectedIndex="0">
+                            <ComboBoxItem Content="Fixed Amount"/>
+                        </ComboBox>
+                    </Grid>
+
+                    <TextBlock Text="Co. Pay (CPT) :" Grid.Row="6" Style="{StaticResource FieldLabel}"/>
+                    <Grid Grid.Row="6" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Text="0.00" HorizontalAlignment="Left" Width="80"/>
+                        <ComboBox Grid.Column="1" SelectedIndex="0">
+                            <ComboBoxItem Content="Percentage"/>
+                        </ComboBox>
+                    </Grid>
+
+                    <TextBlock Text="DN(Dental) Copay % :" Grid.Row="7" Style="{StaticResource FieldLabel}"/>
+                    <TextBox Grid.Row="7" Grid.Column="1" Text="0.00" Width="80" HorizontalAlignment="Left"/>
+
+                    <TextBlock Text="PH(Pharmacy) Copay % :" Grid.Row="8" Style="{StaticResource FieldLabel}"/>
+                    <TextBox Grid.Row="8" Grid.Column="1" Text="0.00" Width="80" HorizontalAlignment="Left"/>
+
+                    <!-- Buttons -->
+                    <StackPanel Grid.Row="3" Grid.RowSpan="6" Grid.Column="2" VerticalAlignment="Top" Margin="5,0,0,0">
+                        <Button Content="Add" Width="80" Margin="0,0,0,5"/>
+                        <Button Content="Delete" Width="80" Margin="0,0,0,5"/>
+                        <Button Content="Close" Width="80"/>
+                    </StackPanel>
+
+                    <Button Content="Show Card Image" Grid.Row="9" Grid.Column="1" 
+                            HorizontalAlignment="Left" Background="Transparent" BorderThickness="0" 
+                            Foreground="#1976D2" Cursor="Hand"/>
+                </Grid>
+            </GroupBox>
+
+            <!-- DataGrid -->
+
+            <DataGrid Grid.Row="2" AutoGenerateColumns="False" CanUserAddRows="False" 
+          HeadersVisibility="Column" GridLinesVisibility="Horizontal"
+          Background="#FFFFF0" AlternatingRowBackground="#FFFDE7">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Type" Width="60"/>
+                    <DataGridTextColumn Header="Name" Width="80"/>
+                    <DataGridTextColumn Header="Package" Width="80"/>
+                    <DataGridTextColumn Header="Card No." Width="80"/>
+                    <DataGridTextColumn Header="Expiry Date" Width="80"/>
+                    <DataGridTextColumn Header="Ded. Amt" Width="60"/>
+                    <DataGridTextColumn Header="Co. Ins %" Width="60"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <!-- BOTTOM BUTTONS -->
+     
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,8,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Content="Attach Documents" Width="130" Height="30" Click="BtnAttachDocuments_Click"/>
+
+            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Save" Width="80" Height="30" Margin="5,0" Background="#1976D2" Foreground="White" Click="BtnSave_Click"/>
+                <Button Content="Open File" Width="80" Height="30" Margin="5,0" Click="BtnOpenFile_Click"/>
+                <Button Content="Reports" Width="80" Height="30" Margin="5,0" Background="#00BCD4" Foreground="White" Click="BtnReports_Click"/>
+                <Button Content="New" Width="80" Height="30" Margin="5,0" Click="BtnClear_Click"/>
+                <Button Content="Delete" Width="80" Height="30" Margin="5,0" Click="BtnDelete_Click"/>
+                <Button Content="Close" Width="80" Height="30" Margin="5,0" Click="BtnClose_Click"/>
+                <TextBlock Text="&quot;Awaiting Update&quot;" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="Red" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
