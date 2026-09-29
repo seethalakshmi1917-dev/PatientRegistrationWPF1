@@ -28,7 +28,6 @@ namespace PatientRegistrationWPF1
                 {
                     connection.Open();
 
-                    // 1. Get next FileNo
                     string fileNoQuery =
                         "SELECT ISNULL(MAX(FileNo), 0) + 1 FROM PatDtls";
 
@@ -40,7 +39,6 @@ namespace PatientRegistrationWPF1
                         fileNo = Convert.ToInt32(fileNoCommand.ExecuteScalar());
                     }
 
-                    // 2. Save Patient
                     string patientQuery = @"
                 INSERT INTO PatDtls
                 (
@@ -264,7 +262,7 @@ namespace PatientRegistrationWPF1
         private void BtnReports_Click(object sender, RoutedEventArgs e)
         {
         }
-        // ✅ ADD THESE TWO METHODS HERE
+
         private void BtnAddInsurance_Click(object sender, RoutedEventArgs e)
         {
             string type = "INS";
@@ -306,7 +304,6 @@ namespace PatientRegistrationWPF1
             }
         }
 
-        // Your existing method starts here:
        
         private void DpDOB_SelectedDateChanged(
             object sender,
