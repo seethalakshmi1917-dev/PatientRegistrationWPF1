@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Patient Registration"
         Height="850"
@@ -455,10 +456,14 @@
                     <TextBlock Text="Type :" Style="{StaticResource FieldLabel}"/>
                     <ComboBox x:Name="cmbInsuranceType" Grid.Column="1" Grid.ColumnSpan="2" SelectedIndex="0">
                         <ComboBoxItem Content="Insurance"/>
+                        <ComboBoxItem Content="Corporate"/>
                     </ComboBox>
 
                     <TextBlock Text="Name :" Grid.Row="1" Style="{StaticResource FieldLabel}"/>
-                    <ComboBox x:Name="cmbInsuranceName" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <ComboBox x:Name="cmbInsuranceName" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" SelectedIndex="0">
+                        <ComboBoxItem Content="Thiqa Insurance"/>
+                        <ComboBoxItem Content="Daman Insurance"/>
+                    </ComboBox>
 
                     <TextBlock Text="Packages :" Grid.Row="2" Style="{StaticResource FieldLabel}"/>
                     <ComboBox x:Name="cmbPackages" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
@@ -467,9 +472,12 @@
                     <TextBox x:Name="txtCardNo" Grid.Row="3" Grid.Column="1" Width="200" HorizontalAlignment="Left"/>
 
                     <TextBlock Text="Expiry Date :" Grid.Row="4" Style="{StaticResource FieldLabel}"/>
-                    <ComboBox x:Name="cmbExpiry" Grid.Row="4" Grid.Column="1" Width="200" HorizontalAlignment="Left" SelectedIndex="0">
-                        <ComboBoxItem Content="11 Nov 2025"/>
-                    </ComboBox>
+                    <DatePicker x:Name="dpExpiry"
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                Width="200"
+                                HorizontalAlignment="left"
+                                SelectedDate= "{x:Static sys:DateTime.Now}"/>
 
                     <TextBlock Text="Deductable Amt. :" Grid.Row="5" Style="{StaticResource FieldLabel}"/>
                     <Grid Grid.Row="5" Grid.Column="1">
@@ -503,8 +511,8 @@
 
                     <!-- Buttons -->
                     <StackPanel Grid.Row="3" Grid.RowSpan="6" Grid.Column="2" VerticalAlignment="Top" Margin="5,0,0,0">
-                        <Button Content="Add" Width="80" Margin="0,0,0,5"/>
-                        <Button Content="Delete" Width="80" Margin="0,0,0,5"/>
+                        <Button Content="Add" Width="80" Margin="0,0,0,5" Click="BtnAddInsurance_Click"/>
+                        <Button Content="Delete" Width="80" Margin="0,0,0,5" Click="BtnDeleteInsurance_Click"/>
                         <Button Content="Close" Width="80"/>
                     </StackPanel>
 
@@ -516,17 +524,20 @@
 
             <!-- DataGrid -->
 
-            <DataGrid Grid.Row="2" AutoGenerateColumns="False" CanUserAddRows="False" 
-          HeadersVisibility="Column" GridLinesVisibility="Horizontal"
-          Background="#FFFFF0" AlternatingRowBackground="#FFFDE7">
+            <DataGrid x:Name="dgInsurance" Grid.Row="2" 
+                      AutoGenerateColumns="False" 
+                      CanUserAddRows="False" HeadersVisibility="Column" 
+                      GridLinesVisibility="Horizontal" 
+                      Background="#FFFFF0"
+                      AlternatingRowBackground="#FFFDE7">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Type" Width="60"/>
-                    <DataGridTextColumn Header="Name" Width="80"/>
-                    <DataGridTextColumn Header="Package" Width="80"/>
-                    <DataGridTextColumn Header="Card No." Width="80"/>
-                    <DataGridTextColumn Header="Expiry Date" Width="80"/>
-                    <DataGridTextColumn Header="Ded. Amt" Width="60"/>
-                    <DataGridTextColumn Header="Co. Ins %" Width="60"/>
+                    <DataGridTextColumn Header="Type" Width="60" Binding="{Binding Type}"/>
+                    <DataGridTextColumn Header="Name" Width="120" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Package" Width="100" Binding="{Binding Package}"/>
+                    <DataGridTextColumn Header="Card No." Width="80" Binding="{Binding CardNo}"/>
+                    <DataGridTextColumn Header="Expiry Date" Width="90" Binding="{Binding ExpiryDate}"/>
+                    <DataGridTextColumn Header="Ded. Amt" Width="70" Binding="{Binding DeductibleAmt}"/>
+                    <DataGridTextColumn Header="Co. Ins %" Width="80" Binding="{Binding CoInsurancePercent}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
