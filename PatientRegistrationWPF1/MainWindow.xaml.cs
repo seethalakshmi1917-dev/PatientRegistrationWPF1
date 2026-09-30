@@ -249,6 +249,9 @@ namespace PatientRegistrationWPF1
 
         private void BtnOpenFile_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileWindow openFilePopup = new OpenFileWindow();
+            openFilePopup.Owner = this;
+            openFilePopup.ShowDialog();
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
@@ -321,6 +324,9 @@ namespace PatientRegistrationWPF1
                 txtAge.Text = age.ToString();
             }
         }
+       
+        
+
     }
 }
 
