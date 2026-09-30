@@ -96,6 +96,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <!-- MRN -->
@@ -107,7 +108,9 @@
          Grid.Row="0" 
          Grid.Column="1" 
          Grid.ColumnSpan="2"
-         Text=""/>
+         Text=""
+         IsReadOnly="True"
+         Background="#EEEEEE"/>
 
                 <Button Content="..." 
         Grid.Row="0" 
@@ -186,7 +189,8 @@
 
                 <DatePicker x:Name="dpDOB" 
             Grid.Row="5" 
-            Grid.Column="1"/>
+            Grid.Column="1"
+                            SelectedDateChanged="DpDOB_SelectedDateChanged"/>
 
                 <TextBlock Text="Age :" 
            Grid.Row="5" 
@@ -389,12 +393,7 @@
                          Grid.ColumnSpan="3"/>
 
                 <!-- Save Button -->
-                <Button Content="Save" 
-                        Grid.Row="16"
-                        Grid.Column="3" 
-                        Width="60" 
-                        HorizontalAlignment="Right" 
-                        VerticalAlignment="Bottom" Margin="0,0,0,5"/>
+                
             </Grid>
         </GroupBox>
 
@@ -492,10 +491,11 @@
                       FontSize="13" FontWeight="Bold" Margin="0,0,0,8">
                 <Grid Margin="8">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="130"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="130"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -507,8 +507,8 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-
                     <TextBlock Text="Type :" Style="{StaticResource FieldLabel}"/>
                     <ComboBox x:Name="cmbInsuranceType" Grid.Column="1" Grid.ColumnSpan="2" SelectedIndex="0">
                         <ComboBoxItem Content="Insurance"/>
@@ -521,50 +521,127 @@
                         <ComboBoxItem Content="Daman Insurance"/>
                     </ComboBox>
 
-                    <TextBlock Text="Packages :" Grid.Row="2" Style="{StaticResource FieldLabel}"/>
-                    <ComboBox x:Name="cmbPackages" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <!-- Packages -->
+                    <TextBlock Text="Packages :"
+           Grid.Row="2"
+           Style="{StaticResource FieldLabel}"/>
 
-                    <TextBlock Text="Card No. :" Grid.Row="3" Style="{StaticResource FieldLabel}"/>
-                    <TextBox x:Name="txtCardNo" Grid.Row="3" Grid.Column="1" Width="200" HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="cmbPackages"
+          Grid.Row="2"
+          Grid.Column="1"
+          Grid.ColumnSpan="2"
+          SelectedIndex="0">
+                        <ComboBoxItem Content="Normal Package"/>
+                        <ComboBoxItem Content="Basic Package"/>
+                        <ComboBoxItem Content="Premium Package"/>
+                    </ComboBox>
 
-                    <TextBlock Text="Expiry Date :" Grid.Row="4" Style="{StaticResource FieldLabel}"/>
+
+                    <!-- Payer -->
+                    <TextBlock Text="Payer :"
+           Grid.Row="3"
+           Style="{StaticResource FieldLabel}"/>
+
+                    <ComboBox x:Name="cmbPayer"
+          Grid.Row="3"
+          Grid.Column="1"
+          Grid.ColumnSpan="2"
+          SelectedIndex="0">
+                        <ComboBoxItem Content="Abudhabi Department of Finance"/>
+                    </ComboBox>
+
+
+                    <!-- Card No. -->
+                    <TextBlock Text="Card No. :"
+           Grid.Row="4"
+           Style="{StaticResource FieldLabel}"/>
+
+                    <TextBox x:Name="txtCardNo"
+         Grid.Row="4"
+         Grid.Column="1"
+         Width="200"
+         HorizontalAlignment="Left"/>
+
+
+                    <!-- Expiry Date -->
+                    <TextBlock Text="Expiry Date :"
+           Grid.Row="5"
+           Style="{StaticResource FieldLabel}"/>
+
                     <DatePicker x:Name="dpExpiry"
-                                Grid.Row="4"
-                                Grid.Column="1"
-                                Width="200"
-                                HorizontalAlignment="left"
-                                SelectedDate= "{x:Static sys:DateTime.Now}"/>
+            Grid.Row="5"
+            Grid.Column="1"
+            Width="200"
+            HorizontalAlignment="Left"
+            SelectedDate="{x:Static sys:DateTime.Now}"/>
 
-                    <TextBlock Text="Deductable Amt. :" Grid.Row="5" Style="{StaticResource FieldLabel}"/>
-                    <Grid Grid.Row="5" Grid.Column="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBox Text="0.00" HorizontalAlignment="Left" Width="80"/>
-                        <ComboBox Grid.Column="1" SelectedIndex="0">
-                            <ComboBoxItem Content="Fixed Amount"/>
-                        </ComboBox>
-                    </Grid>
 
-                    <TextBlock Text="Co. Pay (CPT) :" Grid.Row="6" Style="{StaticResource FieldLabel}"/>
+                    <!-- Deductable Amount -->
+                    <TextBlock Text="Deductable Amt. :"
+           Grid.Row="6"
+           Style="{StaticResource FieldLabel}"/>
+
                     <Grid Grid.Row="6" Grid.Column="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="80"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Text="0.00" HorizontalAlignment="Left" Width="80"/>
-                        <ComboBox Grid.Column="1" SelectedIndex="0">
+
+                        <TextBox Text="0.00"
+             HorizontalAlignment="Left"
+             Width="80"/>
+
+                        <ComboBox Grid.Column="1"
+              SelectedIndex="0">
+                            <ComboBoxItem Content="Fixed Amount"/>
+                        </ComboBox>
+                    </Grid>
+
+
+                    <!-- Co Pay -->
+                    <TextBlock Text="Co. Pay (CPT) :"
+           Grid.Row="7"
+           Style="{StaticResource FieldLabel}"/>
+
+                    <Grid Grid.Row="7" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox Text="0.00"
+             HorizontalAlignment="Left"
+             Width="80"/>
+
+                        <ComboBox Grid.Column="1"
+              SelectedIndex="0">
                             <ComboBoxItem Content="Percentage"/>
                         </ComboBox>
                     </Grid>
 
-                    <TextBlock Text="DN(Dental) Copay % :" Grid.Row="7" Style="{StaticResource FieldLabel}"/>
-                    <TextBox Grid.Row="7" Grid.Column="1" Text="0.00" Width="80" HorizontalAlignment="Left"/>
 
-                    <TextBlock Text="PH(Pharmacy) Copay % :" Grid.Row="8" Style="{StaticResource FieldLabel}"/>
-                    <TextBox Grid.Row="8" Grid.Column="1" Text="0.00" Width="80" HorizontalAlignment="Left"/>
+                    <!-- Dental Copay -->
+                    <TextBlock Text="DN(Dental) Copay % :"
+           Grid.Row="8"
+           Style="{StaticResource FieldLabel}"/>
 
+                    <TextBox Grid.Row="8"
+         Grid.Column="1"
+         Text="0.00"
+         Width="80"
+         HorizontalAlignment="Left"/>
+
+
+                    <!-- Pharmacy Copay -->
+                    <TextBlock Text="PH(Pharmacy) Copay % :"
+           Grid.Row="9"
+           Style="{StaticResource FieldLabel}"/>
+
+                    <TextBox Grid.Row="9"
+         Grid.Column="1"
+         Text="0.00"
+         Width="80"
+         HorizontalAlignment="Left"/>
                     <!-- Buttons -->
                     <StackPanel Grid.Row="3" Grid.RowSpan="6" Grid.Column="2" VerticalAlignment="Top" Margin="5,0,0,0">
                         <Button Content="Add" Width="80" Margin="0,0,0,5" Click="BtnAddInsurance_Click"/>
@@ -572,9 +649,7 @@
                         <Button Content="Close" Width="80"/>
                     </StackPanel>
 
-                    <Button Content="Show Card Image" Grid.Row="9" Grid.Column="1" 
-                            HorizontalAlignment="Left" Background="Transparent" BorderThickness="0" 
-                            Foreground="#1976D2" Cursor="Hand"/>
+
                 </Grid>
             </GroupBox>
 
@@ -590,6 +665,7 @@
                     <DataGridTextColumn Header="Type" Width="60" Binding="{Binding Type}"/>
                     <DataGridTextColumn Header="Name" Width="120" Binding="{Binding Name}"/>
                     <DataGridTextColumn Header="Package" Width="100" Binding="{Binding Package}"/>
+                    <DataGridTextColumn Header="Payer" Width="80" Binding="{Binding Payer}"/>
                     <DataGridTextColumn Header="Card No." Width="80" Binding="{Binding CardNo}"/>
                     <DataGridTextColumn Header="Expiry Date" Width="90" Binding="{Binding ExpiryDate}"/>
                     <DataGridTextColumn Header="Ded. Amt" Width="70" Binding="{Binding DeductibleAmt}"/>

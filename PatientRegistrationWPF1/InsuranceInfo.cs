@@ -6,6 +6,7 @@ namespace PatientRegistrationWPF1
         public string Type { get; set; } = "";
         public string Name { get; set; } = "";
         public string Package { get; set; } = "";
+        public string Payer { get; set; } = "";
 
         public int PackageId { get; set; }
         public string MemberNo { get; set; } = "";
