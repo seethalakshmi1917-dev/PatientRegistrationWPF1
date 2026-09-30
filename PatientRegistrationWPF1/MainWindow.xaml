@@ -408,26 +408,82 @@
             </Grid.RowDefinitions>
 
             <!-- Home Care Additional Information -->
-            <GroupBox Grid.Row="0" Header="Home Care Additional Information" 
-                      FontSize="13" FontWeight="Bold" Margin="0,0,0,8">
+            <GroupBox Grid.Row="0"
+          Header="Home Care Additional Information"
+          FontSize="13"
+          FontWeight="Bold"
+          Margin="0,0,0,8"
+          Padding="5">
+
                 <Grid Margin="8">
+
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="180"/>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="City, Area, Street, House Number :" Style="{StaticResource FieldLabel}"/>
-                    <TextBox Grid.Column="1" Grid.ColumnSpan="2" Height="50" VerticalContentAlignment="Top" 
-                             TextWrapping="Wrap" AcceptsReturn="True"/>
+                    <!-- Address -->
+                    <TextBlock Text="Home Care Address"
+                   Style="{StaticResource FieldLabel}"
+                   VerticalAlignment="Top"
+                   Margin="0,8,10,0"/>
 
-                    <TextBlock Text="Google Map Cordinates :" Grid.Row="1" Style="{StaticResource FieldLabel}"/>
-                    <TextBox Grid.Row="1" Grid.Column="1"/>
-                    <Button Content="Save" Grid.Row="1" Grid.Column="2" Width="60" Margin="5,2,0,5"/>
+                    <Border Grid.Column="1"
+                BorderBrush="#C9CED6"
+                BorderThickness="1"
+                CornerRadius="4"
+                Background="White"
+                Padding="3"
+                Margin="0,2,0,8">
+
+                        <TextBox x:Name="txtHomeCareAddress"
+                     Height="55"
+                     BorderThickness="0"
+                     VerticalContentAlignment="Top"
+                     TextWrapping="Wrap"
+                     AcceptsReturn="True"
+                     Padding="6"
+                     ToolTip="Enter City, Area, Street and House Number"/>
+                    </Border>
+
+
+                    <!-- Google Maps -->
+                    <TextBlock Text="Google Maps Location"
+                   Grid.Row="1"
+                   Style="{StaticResource FieldLabel}"
+                   VerticalAlignment="Center"
+                   Margin="0,0,10,5"/>
+
+                    <Grid Grid.Row="1"
+              Grid.Column="1">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox x:Name="txtGoogleMapCoordinates"
+                     Grid.Column="0"
+                     Height="30"
+                     Padding="7"
+                     ToolTip="Example: 24.4539, 54.3773"/>
+
+                        <Button Content="Save Location"
+                    Grid.Column="1"
+                    Width="110"
+                    Height="30"
+                    Margin="8,2,0,5"
+                    Background="#1976D2"
+                    Foreground="White"
+                    BorderThickness="0"
+                    FontWeight="SemiBold"/>
+                    </Grid>
+
                 </Grid>
             </GroupBox>
 
@@ -551,9 +607,10 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Button Content="Attach Documents" Width="130" Height="30" Click="BtnAttachDocuments_Click"/>
+            
 
             <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Attach Documents" Width="130" Height="30" Click="BtnAttachDocuments_Click"/>
                 <Button Content="Save" Width="80" Height="30" Margin="5,0" Background="#1976D2" Foreground="White" Click="BtnSave_Click"/>
                 <Button Content="Open File" Width="80" Height="30" Margin="5,0" Click="BtnOpenFile_Click"/>
                 <Button Content="Reports" Width="80" Height="30" Margin="5,0" Background="#00BCD4" Foreground="White" Click="BtnReports_Click"/>

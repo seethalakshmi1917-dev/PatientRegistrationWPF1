@@ -16,7 +16,7 @@ namespace PatientRegistrationWPF1
 
             dgInsurance.ItemsSource = insuranceList;
         }
-
+         
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
             string connectionString =

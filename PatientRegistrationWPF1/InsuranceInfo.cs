@@ -1,4 +1,5 @@
-﻿namespace PatientRegistrationWPF1
+﻿
+namespace PatientRegistrationWPF1
 {
     public class InsuranceInfo
     {
@@ -19,3 +20,4 @@
         public int VisitNo { get; set; }
     }
 }
+
