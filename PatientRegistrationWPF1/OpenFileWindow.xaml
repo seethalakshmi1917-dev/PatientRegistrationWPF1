@@ -2,256 +2,233 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Open FILE"
-        Height="650"
-        Width="390"
+        Height="700"
+        Width="500"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
-        Background="#F3F3F3">
+        Background="#F0F0F0"
+        FontFamily="Segoe UI"
+        FontSize="12">
 
-    <Grid Margin="12">
+    <Grid Margin="8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            
+            <RowDefinition Height="8"/>
+          
             <RowDefinition Height="Auto"/>
+          
+            <RowDefinition Height="8"/>
+            
             <RowDefinition Height="Auto"/>
+            
+            <RowDefinition Height="8"/>
+          
             <RowDefinition Height="Auto"/>
+           
+            <RowDefinition Height="8"/>
+         
             <RowDefinition Height="Auto"/>
+          
+            <RowDefinition Height="8"/>
+            
             <RowDefinition Height="Auto"/>
+            
+            <RowDefinition Height="8"/>
+     
             <RowDefinition Height="Auto"/>
+       
+            <RowDefinition Height="8"/>
+        
             <RowDefinition Height="Auto"/>
+           
+            <RowDefinition Height="8"/>
+            
             <RowDefinition Height="Auto"/>
+           
+            <RowDefinition Height="8"/>
+           
             <RowDefinition Height="Auto"/>
+          
+            <RowDefinition Height="8"/>
+            
             <RowDefinition Height="Auto"/>
+            
+            <RowDefinition Height="8"/>
+            
             <RowDefinition Height="Auto"/>
+            
+            <RowDefinition Height="8"/>
+          
             <RowDefinition Height="Auto"/>
+        
+            <RowDefinition Height="8"/>
+            
             <RowDefinition Height="Auto"/>
+            
             <RowDefinition Height="*"/>
+            
             <RowDefinition Height="Auto"/>
+         
         </Grid.RowDefinitions>
 
-        <TextBlock Text="FIN No. :" Grid.Row="0"
-                   VerticalAlignment="Center"/>
+        <!-- FIN No. -->
+        <TextBlock Text="FIN No. :" Grid.Row="0" Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBox x:Name="txtFINNo" Width="90" Height="24" Margin="0,0,8,0"/>
+            <CheckBox x:Name="chkDuplicateFIN" Content="Enable Duplicate FIN" 
+                      VerticalAlignment="Center" FontSize="11"/>
+        </StackPanel>
+        <Button Grid.Row="0" Grid.Column="2" Width="24" Height="24" Background="#9B59B6" 
+                Foreground="White" Content="" FontSize="10"/>
 
-        <TextBox x:Name="txtFINNo"
-                 Grid.Row="0"
-                 Margin="110,0,0,5"
-                 Width="75"
-                 HorizontalAlignment="Left"/>
+        <!-- Start Date / Time -->
+        <TextBlock Text="Start Date :" Grid.Row="2" Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <DatePicker x:Name="dpStartDate" Width="110" Height="24" Margin="0,0,15,0"/>
+            <TextBlock Text="Time:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <TextBlock x:Name="txtTime" Text="10:36" FontWeight="Bold" 
+                       VerticalAlignment="Center" FontSize="13"/>
+        </StackPanel>
 
-        <CheckBox x:Name="chkDuplicateFIN"
-                  Grid.Row="0"
-                  Content="Enable Duplicate FIN"
-                  Margin="190,3,0,5"/>
+        <!-- File No. / Visit No. -->
+        <TextBlock Text="File No. :" Grid.Row="4" Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBox x:Name="txtFileNo" Width="100" Height="24" Margin="0,0,15,0"/>
+            <TextBlock Text="Visit No.:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox x:Name="txtVisitNo" Width="50" Height="24" Text="1"/>
+        </StackPanel>
 
-        <TextBlock Text="Start Date :"
-                   Grid.Row="1"
-                   VerticalAlignment="Center"/>
+        <!-- Patient Name -->
+        <TextBlock Text="Patient Name :" Grid.Row="6" Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <TextBox x:Name="txtPatientName" Grid.Row="6" Grid.Column="1" Height="24"/>
 
-        <DatePicker x:Name="dpStartDate"
-                    Grid.Row="1"
-                    Margin="110,0,0,5"
-                    Width="100"
-                    HorizontalAlignment="Left"/>
-
-        <TextBlock Text="Time :"
-                   Grid.Row="1"
-                   Margin="220,0,0,0"/>
-
-        <TextBlock x:Name="txtTime"
-                   Grid.Row="1"
-                   Text="10:36"
-                   FontWeight="Bold"
-                   Margin="265,0,0,5"/>
-
-        <TextBlock Text="File No. :"
-                   Grid.Row="2"
-                   VerticalAlignment="Center"/>
-
-        <TextBox x:Name="txtFileNo"
-                 Grid.Row="2"
-                 Margin="110,0,0,5"
-                 Width="100"
-                 HorizontalAlignment="Left"/>
-
-        <TextBlock Text="Visit No. :"
-                   Grid.Row="2"
-                   Margin="220,0,0,0"/>
-
-        <TextBox x:Name="txtVisitNo"
-                 Grid.Row="2"
-                 Margin="285,0,0,5"
-                 Width="45"
-                 Text="1"/>
-
-        <TextBlock Text="Patient Name :"
-                   Grid.Row="3"
-                   VerticalAlignment="Center"/>
-
-        <TextBox x:Name="txtPatientName"
-                 Grid.Row="3"
-                 Margin="110,0,0,5"
-                 Width="220"
-                 HorizontalAlignment="Left"/>
-
-        <TextBlock Text="Patient Type :"
-                   Grid.Row="4"
-                   VerticalAlignment="Center"/>
-
-        <ComboBox x:Name="cmbPatientType"
-                  Grid.Row="4"
-                  Margin="110,0,0,5"
-                  Width="140"
-                  HorizontalAlignment="Left">
+        <!-- Patient Type -->
+        <TextBlock Text="Patient Type :" Grid.Row="8" Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <ComboBox x:Name="cmbPatientType" Grid.Row="8" Grid.Column="1" Height="24" SelectedIndex="0">
             <ComboBoxItem Content="Out Patient"/>
             <ComboBoxItem Content="In Patient"/>
         </ComboBox>
 
-        <TextBlock Text="Ordering Physician :"
-                   Grid.Row="5"
-                   VerticalAlignment="Center"/>
+        <!-- Ordering Physician -->
+        <TextBlock Text="Ordering Physician :" Grid.Row="10" Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <TextBox x:Name="txtOrderingPhysician" Grid.Row="10" Grid.Column="1" Height="24"/>
+        <Button Grid.Row="10" Grid.Column="2" Width="24" Height="24" Background="#9B59B6" 
+                Foreground="White" Content="🔍" FontSize="10"/>
 
-        <TextBox x:Name="txtOrderingPhysician"
-                 Grid.Row="5"
-                 Margin="110,0,35,5"/>
+        <!-- Activity Physician -->
+        <TextBlock Text="Activity Physician :" Grid.Row="12" Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <TextBox x:Name="txtActivityPhysician" Grid.Row="12" Grid.Column="1" Height="24"/>
+        <Button Grid.Row="12" Grid.Column="2" Width="24" Height="24" Background="#9B59B6" 
+                Foreground="White" Content="🔍" FontSize="10"/>
 
-        <TextBlock Text="Activity Physician :"
-                   Grid.Row="6"
-                   VerticalAlignment="Center"/>
+        <!-- Specialty -->
+        <TextBlock Text="Specialty :" Grid.Row="14" Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <StackPanel Grid.Row="14" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <ComboBox x:Name="cmbSpecialty" Width="130" Height="24" Margin="0,0,10,0" SelectedIndex="0">
+                <ComboBoxItem Content="Complete"/>
+            </ComboBox>
+            <CheckBox x:Name="chkShowBySpecialty" Content="Show By Specialty" 
+                      VerticalAlignment="Center" FontSize="11"/>
+        </StackPanel>
 
-        <TextBox x:Name="txtActivityPhysician"
-                 Grid.Row="6"
-                 Margin="110,0,35,5"/>
-
-        <TextBlock Text="Specialty :"
-                   Grid.Row="7"
-                   VerticalAlignment="Center"/>
-
-        <ComboBox x:Name="cmbSpecialty"
-                  Grid.Row="7"
-                  Margin="110,0,0,5"
-                  Width="140"
-                  HorizontalAlignment="Left">
-            <ComboBoxItem Content="Complete"/>
-        </ComboBox>
-
-        <CheckBox x:Name="chkShowBySpecialty"
-                  Grid.Row="7"
-                  Content="Show By Specialty"
-                  Margin="255,3,0,5"/>
-
-        <TextBlock Text="Type of Visit :"
-                   Grid.Row="8"
-                   VerticalAlignment="Center"/>
-
-        <ComboBox x:Name="cmbVisitType"
-                  Grid.Row="8"
-                  Margin="110,0,0,5"
-                  Width="140"
-                  HorizontalAlignment="Left">
+        <!-- Type of Visit -->
+        <TextBlock Text="Type of Visit :" Grid.Row="16" Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <ComboBox x:Name="cmbVisitType" Grid.Row="16" Grid.Column="1" Height="24" SelectedIndex="0">
             <ComboBoxItem Content="New Patient"/>
             <ComboBoxItem Content="Follow Up"/>
         </ComboBox>
 
-        <TextBlock Text="Comments :"
-                   Grid.Row="9"
-                   VerticalAlignment="Center"/>
+        <!-- Comments -->
+        <TextBlock Text="Comments :" Grid.Row="18" Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <TextBox x:Name="txtComments" Grid.Row="18" Grid.Column="1" Height="24"/>
 
-        <TextBox x:Name="txtComments"
-                 Grid.Row="9"
-                 Margin="110,0,0,5"
-                 Width="220"
-                 HorizontalAlignment="Left"/>
-
-        <TextBlock Text="Mode of Payment :"
-                   Grid.Row="10"
-                   VerticalAlignment="Center"/>
-
-        <ComboBox x:Name="cmbPaymentMode"
-                  Grid.Row="10"
-                  Margin="110,0,0,5"
-                  Width="140"
-                  HorizontalAlignment="Left">
+        <!-- Mode of Payment -->
+        <TextBlock Text="Mode of Payment :" Grid.Row="20" Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <ComboBox x:Name="cmbPaymentMode" Grid.Row="20" Grid.Column="1" Height="24" SelectedIndex="0">
             <ComboBoxItem Content="Cash"/>
             <ComboBoxItem Content="Credit Card"/>
             <ComboBoxItem Content="Insurance"/>
         </ComboBox>
 
-        <TextBlock Text="Pharmacy Entry :"
-                   Grid.Row="11"
-                   VerticalAlignment="Center"/>
+        <!-- Pharmacy Entry -->
+        <TextBlock Text="Pharmacy Entry :" Grid.Row="22" Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <TextBox x:Name="txtPharmacyEntry" Grid.Row="22" Grid.Column="1" 
+                 Height="24" Width="100" HorizontalAlignment="Left"/>
 
-        <TextBox x:Name="txtPharmacyEntry"
-                 Grid.Row="11"
-                 Margin="110,0,0,5"
-                 Width="75"
-                 HorizontalAlignment="Left"/>
+        <!-- End Time (two boxes) -->
+        <TextBlock Text="End Time :" Grid.Row="24" Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0"/>
+        <StackPanel Grid.Row="24" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBox x:Name="txtEndTimeStart" Width="70" Height="24" Margin="0,0,5,0"/>
+            <TextBox x:Name="txtEndTimeEnd" Width="70" Height="24"/>
+        </StackPanel>
 
-        <TextBlock Text="End Time :"
-                   Grid.Row="12"
-                   VerticalAlignment="Center"/>
+        <!-- Visit Entry By -->
+        <TextBlock Text="Visit Entry By :" Grid.Row="26" Grid.Column="0" 
+                   HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,3,5,0"/>
+        <TextBox x:Name="txtVisitEntryBy" Grid.Row="26" Grid.Column="1" 
+                 Height="50" IsReadOnly="True" Background="#E0E0E0" 
+                 TextWrapping="Wrap" AcceptsReturn="True"/>
 
-        <TextBox x:Name="txtEndTime"
-                 Grid.Row="12"
-                 Margin="110,0,0,5"
-                 Width="75"
-                 HorizontalAlignment="Left"/>
-
-        <TextBlock Text="Visit Entry By :"
-                   Grid.Row="13"
-                   VerticalAlignment="Top"/>
-
-        <TextBox x:Name="txtVisitEntryBy"
-                 Grid.Row="13"
-                 Margin="110,0,0,5"
-                 Height="45"
-                 IsReadOnly="True"/>
-
-        <Border Grid.Row="14"
-                BorderBrush="#BBBBBB"
-                BorderThickness="1"
-                Padding="8"
-                Margin="0,10,0,0">
-
+        <!-- ✅ FIXED: Bottom Border with FULLY VISIBLE Open/Close Buttons -->
+        <Border Grid.Row="28" Grid.ColumnSpan="3" 
+                BorderBrush="#888888" BorderThickness="1" Padding="15,12,15,15" 
+                Margin="0,10,0,10" Background="#F0F0F0">
             <StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-
-                    <CheckBox x:Name="chkPrintSingleSticker"
-                              Content="Print Single Sticker"
-                              IsChecked="True"/>
-
-                    <TextBox x:Name="txtStickerCount"
-                             Width="30"
-                             Height="25"
-                             Text="1"
-                             Margin="15,0,0,0"/>
-
+                <!-- Print Single Sticker Row -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,8">
+                    <CheckBox x:Name="chkPrintSingleSticker" VerticalAlignment="Center" IsChecked="True">
+                        <TextBlock Text="Print Single Sticker" TextDecorations="Underline"/>
+                    </CheckBox>
+                    <Border Width="40" Height="22" Margin="8,0,0,0" BorderBrush="#666666" BorderThickness="1" Background="White">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="16"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="txtStickerCount" Text="1" BorderThickness="0" 
+                                     VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                                     Padding="0" FontSize="11"/>
+                            <StackPanel Grid.Column="1" Orientation="Vertical">
+                                <RepeatButton Height="10" Content="▲" FontSize="6" Padding="0,-2,0,0"/>
+                                <RepeatButton Height="10" Content="▼" FontSize="6" Padding="0,-2,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
                 </StackPanel>
 
-                <CheckBox x:Name="chkShowTime"
-                          Content="Show Time"
-                          Margin="75,8,0,0"/>
+                <!-- Show Time Checkbox - Centered -->
+                <CheckBox x:Name="chkShowTime" HorizontalAlignment="Center" Margin="0,0,0,12">
+                    <TextBlock Text="Show Time" TextDecorations="Underline"/>
+                </CheckBox>
 
-                <StackPanel Orientation="Horizontal"
-                            HorizontalAlignment="Center"
-                            Margin="0,12,0,0">
-
-                    <Button Content="Open"
-                            Width="90"
-                            Height="30"
-                            Margin="5"
-                            Click="BtnOpen_Click"/>
-
-                    <Button Content="Close"
-                            Width="90"
-                            Height="30"
-                            Margin="5"
-                            Click="BtnClose_Click"/>
-
+                <!-- ✅ Open/Close Buttons - Fully Visible -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
+                    <Button Content="_Open" Width="100" Height="28" Margin="5" 
+                            Click="BtnOpen_Click" FontSize="11"/>
+                    <Button Content="_Close" Width="100" Height="28" Margin="5" 
+                            Click="BtnClose_Click" FontSize="11"/>
                 </StackPanel>
-
             </StackPanel>
-
         </Border>
 
     </Grid>

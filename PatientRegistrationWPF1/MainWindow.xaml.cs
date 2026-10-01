@@ -537,7 +537,7 @@ namespace PatientRegistrationWPF1
                 DateTime dob = dpDOB.SelectedDate.Value;
 
                 int age = DateTime.Today.Year - dob.Year;
-
+                
                 if (dob.Date > DateTime.Today.AddYears(-age))
                     age--;
 
