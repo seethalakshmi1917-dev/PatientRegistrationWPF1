@@ -9,14 +9,14 @@ namespace PatientRegistrationWPF1
         private string connectionString =
             @"Server=HP\SQLEXPRESS;Database=Globis_ICLDC_AD;Trusted_Connection=True;TrustServerCertificate=True;";
 
-        public OpenFileWindow()
+        public OpenFileWindow(int fileNo, string patientName)
         {
             InitializeComponent();
 
-            // Show current time
-            txtTime.Text = DateTime.Now.ToString("HH:mm");
+            txtFileNo.Text = fileNo.ToString();
+            txtPatientName.Text = patientName;
 
-            // Show current date
+            txtTime.Text = DateTime.Now.ToString("HH:mm");
             dpStartDate.SelectedDate = DateTime.Today;
         }
 

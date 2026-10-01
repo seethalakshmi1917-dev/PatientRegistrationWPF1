@@ -10,6 +10,7 @@ namespace PatientRegistrationWPF1
     public partial class MainWindow : Window
     {
         private ObservableCollection<InsuranceInfo> insuranceList = new ObservableCollection<InsuranceInfo>();
+        private int savedFileNo = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -381,6 +382,7 @@ namespace PatientRegistrationWPF1
                                     invoiceCommand.ExecuteNonQuery();
                                 }
                             }
+                            savedFileNo = fileNo;
 
                             transaction.Commit();
 
@@ -456,9 +458,17 @@ namespace PatientRegistrationWPF1
 
         private void BtnOpenFile_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileWindow openFilePopup = new OpenFileWindow();
-            openFilePopup.Owner = this;
-            openFilePopup.ShowDialog();
+            if (savedFileNo == 0)
+            {
+                MessageBox.Show("Please save the patient details first.");
+                return;
+            }
+
+            OpenFileWindow openFileWindow =
+                new OpenFileWindow(savedFileNo, txtPatientName.Text);
+
+            openFileWindow.Owner = this;
+            openFileWindow.ShowDialog();
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
